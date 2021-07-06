@@ -18,6 +18,10 @@ h1{
     letter-spacing: 10px;
     color:#F26849 ;
 }
+button .topic{
+    text-align: center;
+    background-color: aquamarine;
+}
 /*loader*/
 .loader{
     position: fixed;
