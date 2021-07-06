@@ -1,17 +1,25 @@
 const imageContainer = document.getElementById('image-container');
 const loader = document.getElementById('loader');
-const topicSelected = document.getElementById('topic');
+let topicSelected = "random";
 
 let ready = false;
 let imagesLoaded = 0;
-let totalImages = 0;
+let totalImages = 10;
 let photosArray = [];
 
 //Unsplash API
 const count = 10;
 const apiKey = 'vcwlr2oKagB-8DUvHPuwKAj7VrfSDtpaQqg0WFPbY3s';
-const apiUrl = `https://api.unsplash.com/photos/random/?topic=${topicSelected.value}&client_id=${apiKey}&count=${count}`;
+let apiUrl = `https://api.unsplash.com/photos/random/?query=${topicSelected}&client_id=${apiKey}&count=${count}`;
 
+
+function selecTopic(){
+    let topicSelected = this.value;
+    console.log(topicSelected);
+    let apiUrl = `https://api.unsplash.com/photos/random/?query=${topicSelected}&client_id=${apiKey}&count=${count}`;
+    document.getElementById('image-container').innerHTML='';
+    getPhotos();
+}
 
 //check if all images were loaded
 function imageLoaded() {
@@ -62,6 +70,7 @@ async function getPhotos() {
 		photosArray = await response.json();
 		displayPhotos();
 	} catch (error) {
+        console.log(error);
 		//catch error here
 	}
 }
@@ -73,5 +82,10 @@ window.addEventListener('scroll', () => {
 		getPhotos();
 	}
 });
+
+document.getElementById("travel").addEventListener("click", selecTopic);
+document.getElementById("nature").addEventListener("click", selecTopic);
+document.getElementById("random").addEventListener("click", selecTopic);
+
 //on load
 getPhotos();
