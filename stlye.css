@@ -45,6 +45,30 @@ button .topic{
     width: 100%;
     margin-top: 5px;
 }
+button{
+    width: 20%;
+    height: 30px;
+    margin: 5px;
+    float: left; 
+    font-family: 'Open Sans';
+    margin-left:10%;
+    cursor:pointer;
+    color: #56a0ad;
+    font-size: 20px;
+    font-display: center;
+    border-color: hsla(69, 86%, 81%, 0.6);
+    border-width: 0.01px;
+    border-radius: 10px;
+;
+}
+
+button:hover{
+    filter:brightness(90%);  
+}
+button:active{
+    transform:translate(0, 0.3rem);
+
+}
 /* Media Query: larger Smartphone */
 @media screen and (max-width: 600px){
     h1{

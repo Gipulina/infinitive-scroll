@@ -10,13 +10,13 @@ let photosArray = [];
 //Unsplash API
 const count = 10;
 const apiKey = 'vcwlr2oKagB-8DUvHPuwKAj7VrfSDtpaQqg0WFPbY3s';
-let apiUrl = `https://api.unsplash.com/photos/random/?query=${topicSelected}&client_id=${apiKey}&count=${count}`;
+let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${topicSelected}`;
 
 
 function selecTopic(){
     let topicSelected = this.value;
     console.log(topicSelected);
-    let apiUrl = `https://api.unsplash.com/photos/random/?query=${topicSelected}&client_id=${apiKey}&count=${count}`;
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${topicSelected}`;
     document.getElementById('image-container').innerHTML='';
     getPhotos();
 }
@@ -85,7 +85,7 @@ window.addEventListener('scroll', () => {
 
 document.getElementById("travel").addEventListener("click", selecTopic);
 document.getElementById("nature").addEventListener("click", selecTopic);
-document.getElementById("random").addEventListener("click", selecTopic);
+document.getElementById("animal").addEventListener("click", selecTopic);
 
 //on load
 getPhotos();
